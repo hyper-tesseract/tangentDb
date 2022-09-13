@@ -2,23 +2,22 @@
 
 
 
-## Getting started
+## What is TangentDb?
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+A distributed columnar storage SQL database with main memory and cache optimized read heavy performance and fault tolerance.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+- [ ] [Data System Design](https://docs.google.com/document/d/1tEMW64D63hDUPsrDUxQ-TiTE1KH7D8CoPaoPVaIUX3w/edit?usp=sharing)
 
-## Add your files
+## Features
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+- [ ] SQL
+- [ ] Client API
+- [ ] Auth
+- [ ] Concurrency and Transactions
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/tangent-c/tangentdb.git
-git branch -M main
-git push -uf origin main
-```
+## Technologies and Tools [Tentative]
+- [ ] [Go](https://go.dev/)
+- [ ] [Raft Consensus](https://raft.github.io/)
 
 ## Integrate with your tools
 
