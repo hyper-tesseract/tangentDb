@@ -1,3 +1,3 @@
-module gitlab.com/tangent-c/tangentdb
+module github.com/tangent-c/tangentdb
 
 go 1.18
