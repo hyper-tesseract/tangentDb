@@ -1,0 +1,64 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>60</x><y>120</y><w>150</w><h>40</h></coordinates><panel_attributes>Tangent
+Storage Layer
+bg=Green
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1040</x><y>590</y><w>210</w><h>110</h></coordinates><panel_attributes>Storage::RWFile
+--
+-path: string
+-file: File
+--
+Read(offset: int,  bytes: int): Status
+Write(offset: int,  bytes: int): Status</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>820</x><y>560</y><w>210</w><h>140</h></coordinates><panel_attributes>Storage::PageBuffer
+--
+-id: Long
+--
+Operation(i: int): int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1040</x><y>260</y><w>210</w><h>170</h></coordinates><panel_attributes>Storage::HeapFile
+--
+-file: RWFile
+end_offset: int
+--
+FetchPage()
+NewPage()
+DelPage()
+Header()
+FreeList()
+NextPage()
+PrevPage()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>600</x><y>560</y><w>210</w><h>140</h></coordinates><panel_attributes>Cache::LRUCache
+--
+-id: Long
+--
+Operation(i: int): int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>600</x><y>300</y><w>210</w><h>180</h></coordinates><panel_attributes>Storage::BufferPool
+--
+pages: Buffer
+replacer: LRU
+page_map: Map
+--
+GetPage(PageReq*): Result, Status
+PinPage(PageReq*): Status
+UnpinPage(PageReq*): Status
+AllocatePage(): Result, Status
+DeallocatePage(): Result, Status
+Iterator(IterReq*): Iterator, Status</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>50</x><y>550</y><w>210</w><h>70</h></coordinates><panel_attributes>ReadReq
+--
+fileId: string
+offset: Long</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>60</x><y>180</y><w>200</w><h>30</h></coordinates><panel_attributes>HigherLayer</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>60</x><y>490</y><w>200</w><h>30</h></coordinates><panel_attributes>DiskManager</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>60</x><y>330</y><w>200</w><h>30</h></coordinates><panel_attributes>BufferPool</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>70</x><y>200</y><w>130</w><h>150</h></coordinates><panel_attributes>lt=&lt;-
+GetPage(page_id)</panel_attributes><additional_attributes>10;130;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>200</y><w>60</w><h>150</h></coordinates><panel_attributes>lt=&lt;-
+Page*</panel_attributes><additional_attributes>10;10;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>70</x><y>350</y><w>120</w><h>160</h></coordinates><panel_attributes>lt=&lt;-
+page not in pool
+Fetch from disk</panel_attributes><additional_attributes>10;140;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>230</x><y>350</y><w>80</w><h>160</h></coordinates><panel_attributes>lt=&lt;-
+Page data
+buffer</panel_attributes><additional_attributes>10;10;10;140</additional_attributes></element><element><id>UMLClass</id><coordinates><x>600</x><y>110</y><w>210</w><h>140</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
+Storage::TStore
+--
+/GetPage(PageReq*): Result, Status/
+/PinPage(PageReq*): Status/
+/UnpinPage(PageReq*): Status/
+/AllocatePage(): Result, Status/
+/DeallocatePage(): Result, Status/
+/Iterator(IterReq*): Iterator, Status/</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1040</x><y>110</y><w>210</w><h>140</h></coordinates><panel_attributes>Storage::DiskManager
+--
+file_table: Cache
+--
+
+--
+An indirection layer to map 
+page requests to relevant files</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>700</x><y>240</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element></diagram>
